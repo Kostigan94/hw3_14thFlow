@@ -25,11 +25,9 @@ public class SelenideRepository {
         $("[data-test-selector=nav-search-input]").setValue("selenide").pressEnter();
         $("ul.repo-list li").$("a").click();
         $("#wiki-tab").click();
-        //Assertion
-        $("#wiki-body").shouldHave(text("Soft assertions"));
-
-        $("#wiki-body").$(byText("Soft assertions")).click();
-        // Second Assertion
+        $("#wiki-pages-box").$(byText("Show 2 more pages…")).click();
+        $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
+        $("#wiki-pages-box").$(byText("SoftAssertions")).click();
         $("#wiki-body").shouldHave(text("Using JUnit5 extend test class"));
 
         }
